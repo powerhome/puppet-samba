@@ -193,7 +193,6 @@ define samba::server::share($ensure = present,
       $printer_name ? {
         default => "set \"${target}/printer name\" '${printer_name}'",
         ''      => "rm  \"${target}/printer name\"",
-
       },
       $delete_readonly ? {
         true    => "set \"${target}/delete read only\" yes",
