@@ -189,9 +189,12 @@ define samba::server::share($ensure = present,
       $root_preexec ? {
         ''      => "rm \"${target}/root preexec\"",
         default => "set \"${target}/root preexec\" '${root_preexec}'",
+      },
       $printer_name ? {
         default => "set \"${target}/printer name\" '${printer_name}'",
         ''      => "rm  \"${target}/printer name\"",
+
+      },
       $delete_readonly ? {
         true    => "set \"${target}/delete read only\" yes",
         false   => "set \"${target}/delete read only\" no",
