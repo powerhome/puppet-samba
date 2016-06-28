@@ -31,6 +31,7 @@ define samba::server::share($ensure = present,
                             $strict_allocate = '',
                             $hide_dot_files = '',
                             $root_preexec = '',
+                            $printer_name = '',
                             ) {
 
   $incl    = $samba::server::incl
@@ -187,6 +188,9 @@ define samba::server::share($ensure = present,
       $root_preexec ? {
         ''      => "rm \"${target}/root preexec\"",
         default => "set \"${target}/root preexec\" '${root_preexec}'",
+      $printer_name ? {
+        default => "set \"${target}/printer name\" '${printer_name}'",
+        ''      => "rm  \"${target}/printer name\"",
       },
     ]
 
