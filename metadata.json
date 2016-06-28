@@ -1,13 +1,13 @@
 {
-  "name": "powerhome-samba",
+  "name": "ajjahn-samba",
   "version": "0.4.1",
-  "author": "David Taylor",
+  "author": "Adam Jahn",
   "summary": "Module for provisioning Samba",
   "license": "Apache-2.0",
-  "source": "https://github.com/powerhome/puppet-samba",
-  "project_page": "https://github.com/powerhome/puppet-samba",
-  "issues_url": "https://github.com/powerhome/puppet-samba/issues",
-  "summary": "Module for provisioning Samba",
+  "source": "https://github.com/ajjahn/puppet-samba",
+  "project_page": "https://github.com/ajjahn/puppet-samba",
+  "issues_url": "https://github.com/ajjahn/puppet-samba/issues",
+  "description": "Module for provisioning Samba",
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
