@@ -32,6 +32,7 @@ define samba::server::share($ensure = present,
                             $hide_dot_files = '',
                             $root_preexec = '',
                             $printer_name = '',
+                            $delete_readonly = '',
                             ) {
 
   $incl    = $samba::server::incl
@@ -191,6 +192,10 @@ define samba::server::share($ensure = present,
       $printer_name ? {
         default => "set \"${target}/printer name\" '${printer_name}'",
         ''      => "rm  \"${target}/printer name\"",
+      $delete_readonly ? {
+        true    => "set \"${target}/delete read only\" yes",
+        false   => "set \"${target}/delete read only\" no",
+        default => "rm  \"${target}/delete read only\"",
       },
     ]
 
