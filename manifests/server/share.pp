@@ -34,6 +34,7 @@ define samba::server::share($ensure = present,
                             $printer_name = '',
                             $delete_readonly = '',
                             $inherit_acls = '',
+                            $inherit_permissions = '',
                             ) {
 
   $incl    = $samba::server::incl
@@ -204,6 +205,11 @@ define samba::server::share($ensure = present,
         true    => "set \"${target}/inherit acls\" yes",
         false   => "set \"${target}/inherit acls\" no",
         default => "rm  \"${target}/inherit acls\"",
+      },
+      $inherit_permissions ? {
+        true    => "set \"${target}/inherit permissions\" yes",
+        false   => "set \"${target}/inherit permissions\" no",
+        default => "rm  \"${target}/inherit permissions\"",
       },
     ]
 
